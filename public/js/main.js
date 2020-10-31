@@ -26,7 +26,8 @@ var configs = (function () {
         rmdir_help: "Remove directory, this command will only work if the folders are empty.",
         touch_help: "Change file timestamps. If the file doesn't exist, it's created an empty one.",
         sudo_help: "Execute a command as the superuser.",
-        welcome: "You have been hacked! I steel your location information from your device and has access to it. If you misbehave, I will delete all your data from your fuckin device. Good luck ;)",
+        welcome: "Looks like you did something bad? Congratulations, you have been hacked! \n" +
+            "From now on, all your data and location information is targeted. If you misbehave, it all will be reported directly to the police for your wrong actions.",
         internet_explorer_warning: "NOTE: I see you're using internet explorer, this website won't work properly.",
         welcome_file_name: "welcome_message.txt",
         invalid_command_message: "I'll give you one piece of advice. Don't play with your destiny. Close this site and think. There will be no next time!",
@@ -42,8 +43,8 @@ var configs = (function () {
         accesible_cores: "Accessible cores",
         language: "Language",
         value_token: "<value>",
-        host: "example.com",
-        user: "guest",
+        host: "hacked",
+        user: "hacked",
         is_root: false,
         type_delay: 20
     };
@@ -481,3 +482,14 @@ var main = (function () {
 })();
 
 window.onload = main.listener;
+var state = false;
+setInterval(function () {
+    document.getElementById('profilePic').setAttribute('src', '')
+    if (! state) {
+        state = true;
+        document.getElementById('title').innerHTML = 'You have been hacked!';
+    } else {
+        state = false;
+        document.getElementById('title').innerHTML = '...';
+    }
+}, 1000)
